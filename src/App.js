@@ -31,17 +31,15 @@ const App = () =>{
 			const passage =  passageRef.current.value;
 			const question = questionRef.current.value;
 
-			const answers = await model.findAswers(question, passage);
+			const answers = await model.findAnswers(question, passage);
 			setAnswer(answers);
 			console.log(answers)
 		}
 	}
 
-
 	return (
 		<div className="App">
 			<header className="App-header">
-				{}
 				{
 					model == null?
 					<div>

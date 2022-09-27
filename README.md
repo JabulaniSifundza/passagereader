@@ -1,3 +1,11 @@
+#Natural Lnaguage Processing Web Application using BERT and React
+
+It reads an input passage and answers questions on that passage, giving answers along with scores for those answers.
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
