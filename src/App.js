@@ -4,6 +4,7 @@ import * as tf from "@tensorflow/tfjs";
 import * as qna from "@tensorflow-models/qna";
 import {Puff} from "react-loader-spinner";
 import {Fragment} from "react";
+import myLogo from './LogoRed.png';
 
 
 
@@ -30,7 +31,6 @@ const App = () =>{
 			console.log("Question asked");
 			const passage =  passageRef.current.value;
 			const question = questionRef.current.value;
-
 			const answers = await model.findAnswers(question, passage);
 			setAnswer(answers);
 			console.log(answers)
@@ -43,7 +43,6 @@ const App = () =>{
 				{
 					model == null?
 					<div>
-						<div>Model Loading</div>
 						<Puff
 						type="Puff"
 						color="#aa0000"
@@ -52,13 +51,17 @@ const App = () =>{
 					</div>
 					: 
 					<Fragment>
-						Enter your desired Passage/Text
-						<textarea ref={passageRef} rows="30" cols="100"></textarea>
+						<div className="appHeader">
+							<img src={myLogo} alt="myLogo" className="headerImg"/>
+							<h3 className="headerText">Question and Answer App</h3>
+						</div>
+						Enter your desired Passage/Text:
+						<textarea ref={passageRef} rows="25" cols="100"></textarea>
 						Ask a question about the above passage
-						<input ref={questionRef} onKeyPress={answerQuestion} size="80"></input>
-						Answers
-						{answer ? answer.map((ans, idx) => <div><b>Answer {idx+1} - </b>{ans.text} ({Math.floor(ans.score*100)/100})</div>):""}
-
+						<input ref={questionRef} onKeyPress={answerQuestion} placeholder="Your question" size="80"></input>
+						<p className="enterCaption">Press Enter to get your answer</p>
+						Answers: 
+						{answer ? answer.map((ans, idx) => <div><b>Answer {idx+1} - </b>{ans.text} ({Math.floor(ans.score*100)/100})</div>) :""}
 					</Fragment>
 
 				}
