@@ -45,7 +45,7 @@ const App = () =>{
 					<div>
 						<Puff
 						type="Puff"
-						color="#aa0000"
+						color="#f23838"
 						height={100}
 						width={100}/>
 					</div>
